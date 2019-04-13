@@ -1,0 +1,65 @@
+
+h1 { font-size: 3em; font-weight: bold; margin-top: 0;}
+
+#topHeaderRow {
+    width: 100%;
+   font-size: 0.9em;
+    background-color: black;
+    color: white;
+}
+
+.price { 
+color: red;
+    font-family: "Tekton Pro";
+    font-size: large;
+}
+.white{
+    color: #8699a4;
+}
+.similarTitle {  }
+
+.cartText { 
+margin-left: 1em;
+}
+.button-view{
+    background-color: #2b81af;
+    border-radius:4px;
+    border: #2b81af;
+    color: white;
+}
+.button-wish{
+    background-color: #00AA88;
+    border-radius:4px;
+    border: #00AA88;
+    color: white;
+}
+.button-cart{
+    background-color: #00CCFF;
+    border-radius:4px;
+    border: #00CCFF;
+    color: white;
+}
+footer {
+   margin-top: 1em;
+   background-color: #E7E7E7;
+
+}
+h3{
+    background-color: #2b81af;
+    margin-bottom: 1em;
+    margin-top: 0em;
+    color: white;
+}
+
+.tight-form-group {
+    border: #8699a4 solid 1px;
+    border-radius: 4px;
+}
+.li-right{
+    margin: 1.5em;
+}
+
+#copyrightRow { 
+    background-color: #3A3A3A; 
+    color: white;
+}

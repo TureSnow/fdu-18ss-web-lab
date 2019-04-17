@@ -38,3 +38,10 @@ e.g. //github.com/veronicadavichi/SOFT130002_lab
 如下：
 
 ![sample](sample.png)
+<<<<<<< HEAD:lab4/src/lab4 作业要求.md
+=======
+
+# DDL
+截止时间为**2019年4月11日23:59:59**，也就是下周周四。
+我们这周会出一个新的PDF，提供一个比较合理的作业提交方式。
+>>>>>>> 653cd01c15970b3af63cbcacce25894f13113dd7:lab4/lab4 作业要求.md

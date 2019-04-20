@@ -174,7 +174,13 @@
             return tax;
         }
         function getshipping() {
-            var shipping=100;
+            var shipping;
+            if (getSubtotal()>=1000){
+                shipping=0;
+            }
+            else {
+                shipping=40;
+            }
             return shipping;
         }
         function getGrandtotal() {

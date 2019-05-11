@@ -31,7 +31,7 @@ window.onload=function () {
         flag=0;
         var temp=0;
         var show = self.setInterval(function () {
-            temp+=0.08;
+            temp+=0.008;
             elem.style.opacity=temp;
             if (temp>=0.8){
                 show=window.clearInterval(show);
@@ -41,13 +41,13 @@ window.onload=function () {
                 show=window.clearInterval(show);
                 return;
             }
-        },100);
+        },10);
     }
     function fadeOut(elem) {
         flag=1;
         var temp=0.8;
         var disappear = self.setInterval(function () {
-            temp-=0.08;
+            temp-=0.008;
             elem.style.opacity=temp;
             if (temp<=0){
                 disappear=window.clearInterval(disappear);
@@ -57,6 +57,6 @@ window.onload=function () {
                 disappear=window.clearInterval(disappear);
                 return;
             }
-        },100);
+        },10);
     }
 }

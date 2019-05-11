@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Chapter 10</title>
+<link rel="stylesheet" href="lab7.css">
+<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".thumb").bind("click",function (e) {
+                let target=e.target;
+                $("#imgManipulated img").attr("src", "images/medium/"+getPath(target.src.toString()));
+                $("#imgManipulated figcaption em").html(target.alt.toString());
+                $("#imgManipulated figcaption p").html(target.title.toString());
+            });
+            $("#sliderOpacity").bind("input propertychange",function (e) {
+                    let target=e.target;
+                    $("#numOpacity").html(target.value.toString());
+                    $("#imgManipulated img").css("opacity",(target.value/100).toString());
+            })
+            $("#sliderSaturation").bind("input propertychange",function (e) {
+                let target=e.target;
+                $("#numSaturation").html(target.value.toString());
+                $("#imgManipulated img").css("filter","saturate("+target.value/100+")");
+            })
+            $("#sliderBrightness").bind("input propertychange",function (e) {
+                let target=e.target;
+                $("#numBrightness").html(target.value.toString());
+                $("#imgManipulated img").css("filter","brightness("+target.value/100+")");
+            })
+            $("#sliderHue").bind("input propertychange",function (e) {
+                let target=e.target;
+                $("#numHue").html(target.value.toString());
+                $("#imgManipulated img").css("filter","hue-rotate("+target.value+"deg)");
+            })
+            $("#sliderGray").bind("input propertychange",function (e) {
+                let target=e.target;
+                $("#numGray").html(target.value.toString());
+                $("#imgManipulated img").css("filter","grayscale("+target.value/100+")");
+            })
+            $("#sliderBlur").bind("input propertychange",function (e) {
+                let target=e.target;
+                $("#numBlur").html(target.value.toString());
+                $("#imgManipulated img").css("filter","blur("+target.value+")");
+            })
+            $("#resetFilters").bind("click",function (e) {
+                $("#imgManipulated img").css("filter","none");
+            })
+        });
+        function getPath(src) {
+            let reg=/[a-z0-9]+\.jpg$/;
+            let path=reg.exec(src).toString();
+            return path;
+        }
+    </script>
+</head>    
+<body class="tiled">
+<header>
+    <h1>Art Filters</h1>
+</header>
+<main>
+    <div id="sliderBox">
+        <form>
+           <label>Opacity: </label><p><input type="range" id="sliderOpacity" min="0" max="100" value="100" class="sliders" /> <span id="numOpacity">100</span>%</p>
+           <p><label>Saturation: </label><input type="range" id="sliderSaturation" min="1" max="300" value="100" class="sliders"/> <span id="numSaturation">100</span>%</p>
+           <p><label>Brightness: </label><input type="range" id="sliderBrightness" min="0" max="300" value="100" class="sliders" /> <span id="numBrightness">100</span>%</p>
+           <p><label>Hue Rotate: </label><input type="range" id="sliderHue" min="0" max="360" value="0" class="sliders" /> <span id="numHue">0</span>deg</p>
+           <p><label>Grayscale: </label><input type="range" id="sliderGray" min="0" max="100" value="0" class="sliders"/> <span id="numGray">0</span>%</p>
+           <p><label>Blur: </label><input type="range" id="sliderBlur" min="0" max="10" value="0" class="sliders" /> <span id="numBlur">0</span>px</p>
+           <p><button id="resetFilters">Reset</button> </p>
+        </form>    
+    </div>
+    <figure id="imgManipulated">
+        <img src="images/medium/painting1.jpg" style="filter: saturate(100%)">
+        <figcaption>
+            <em>Still Life with Flowers in a Glass Vase</em> <br>
+            <p>Jan Davidsz. de Heem, 1650 - 1683</p>
+        </figcaption>
+    </figure>   
+    <div id="thumbBox">
+        <div><img src="images/small/painting1.jpg"  class="thumb" alt="Still Life with Flowers in a Glass Vase" title="Jan Davidsz. de Heem, 1650 - 1683"/></div>
+        <div><img src="images/small/painting2.jpg"  class="thumb" alt="Portrait of Alida Christina Assink" title="Jan Adam Kruseman, 1833"/></div>
+        <div><img src="images/small/painting3.jpg"  class="thumb" alt="Self-portrait" title="Vincent van Gogh, 1887"/></div>
+        <div><img src="images/small/painting4.jpg"  class="thumb" alt="William II, Prince of Orange, and his Bride, Mary Stuart" title="Anthony van Dyck, 1641"/></div>
+        <div><img src="images/small/painting5.jpg"  class="thumb" alt="Milkmaid" title="Johannes Vermeer, c. 1660"/></div>
+    </div>
+</main>
+<script>
+
+</script>    
+</body>   
+</html>

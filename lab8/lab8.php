@@ -13,6 +13,14 @@ $subtotal = 0;
 $shipping = 0;
 $grandTotal = 0;
 
+$subtotal=$price1*$quantity1+$price2*$quantity2+$price3*$quantity3+$price4+$quantity4;
+if ($subtotal>$shippingThreshold){
+    $shipping=100;
+}else{
+    $shipping=$shippingFlatAmount;
+}
+$grandTotal=$subtotal+$shipping;
+
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +43,11 @@ $grandTotal = 0;
 <body>
     
 <!-- You should decide where to add the `header.inc.php` and `left.inc.php` -->
+
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
             mdl-layout--fixed-header">
-
+    <?php include 'header.inc.php'; ?>
+    <?php include 'left.inc.php'; ?>
   <main class="mdl-layout__content mdl-color--grey-50">
     <header class="mdl-color--blue-grey-200">
       <h4>Order Summaries</h4>
@@ -86,20 +96,7 @@ $grandTotal = 0;
                       <th>Amount</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                      <tr class="totals">
-                          <td colspan="4">Subtotal</td>
-                          <td>$<?php echo number_format($subtotal,2); ?></td>
-                      </tr>
-                      <tr class="totals">
-                          <td colspan="4">Shipping</td>
-                          <td>$<?php echo number_format($shipping,2); ?></td>
-                      </tr> 
-                      <tr class="grandtotals">
-                          <td colspan="4">Grand Total</td>
-                          <td>$<?php echo number_format($grandTotal,2); ?></td>
-                      </tr>                            
-                  </tfoot>          
+
                   <tbody>
                     <?php
                         // Here you need to complete the function outputOrderRow() in functions.inc.php
@@ -110,7 +107,20 @@ $grandTotal = 0;
                     ?>
           
                   </tbody>
-
+                    <tfoot>
+                    <tr class="totals">
+                        <td colspan="4">Subtotal</td>
+                        <td>$<?php echo number_format($subtotal,2); ?></td>
+                    </tr>
+                    <tr class="totals">
+                        <td colspan="4">Shipping</td>
+                        <td>$<?php echo number_format($shipping,2); ?></td>
+                    </tr>
+                    <tr class="grandtotals">
+                        <td colspan="4">Grand Total</td>
+                        <td>$<?php echo number_format($grandTotal,2); ?></td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
 
@@ -127,6 +137,6 @@ $grandTotal = 0;
   
   
 </div>
-          
+
 </body>
 </html>

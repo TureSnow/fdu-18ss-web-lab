@@ -42,9 +42,11 @@ include 'travel-data.inc.php';
               /* hint: use array and loop */
               //the next line is an example
               //<a href="list.php?country=Canada" role="button" class="btn btn-default"> Canada</a> 
+              foreach ($countries as $key=>$value){
+                  echo '<a role="button" class="btn btn-default">'.$value.'</a>';
+              }
 
-
-              ?>
+                              ?>
                      
         </div>               
            
@@ -58,7 +60,20 @@ include 'travel-data.inc.php';
           //the next lines are one of the elements
           //you need to fill the elements with data provided
 
-
+          foreach ($images as $key=>$value){
+              echo '<li>
+            <a href="detail.php?id=22" class="img-responsive"><img src="images/square/'.$images[$key]["path"].'" alt="'.$images[$key]["title"].'">
+             	<div class="caption">
+           		<div class="blur">
+             		</div>
+          		<div class="caption-text">
+              			<h1>'.$images[$key]["title"].'</h1>
+           		</div>
+           	</div>
+     
+                    </a>
+   			 </li>';
+          }
    //        <li>
    //              <a href="detail.php?id=22" class="img-responsive">
    //              	<img src="images/square/6114850721.jpg" alt="View of Cologne">

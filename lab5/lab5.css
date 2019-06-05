@@ -16,6 +16,9 @@ div#topHeaderRow {
    line-height: 2em;
 */
 }
+article,section{
+   display:block;
+}
 
 .price { font-size: 1.4em; color: red; font-weight: bold;}
 

@@ -62,12 +62,12 @@ include 'travel-data.inc.php';
 
           foreach ($images as $key=>$value){
               echo '<li>
-            <a href="detail.php?id=22" class="img-responsive"><img src="images/square/'.$images[$key]["path"].'" alt="'.$images[$key]["title"].'">
+            <a href="detail.php?id=22" class="img-responsive"><img src="images/square/'.$value["path"].'" alt="'.$value["title"].'">
              	<div class="caption">
            		<div class="blur">
              		</div>
           		<div class="caption-text">
-              			<h1>'.$images[$key]["title"].'</h1>
+              			<h1>'.$value["title"].'</h1>
            		</div>
            	</div>
      

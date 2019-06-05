@@ -21,8 +21,7 @@
 <body>
 
 <header>
-
-   <div id="topHeaderRow" >
+    <div id="topHeaderRow" >
       <div class="container">
          <nav class="navbar navbar-inverse " role="navigation">
             <div class="navbar-header">
@@ -93,7 +92,7 @@
                <li><a href="#">About Us</a></li>
                <li><a href="#">Art Works</a></li>
                <li><a href="#">Artists</a></li>
-               <li class="dropdown">
+               <!--<li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specials <b class="caret"></b></a>
                  <ul class="dropdown-menu">
                    <li><a href="#">Special 1</a></li>
@@ -102,7 +101,7 @@
                    <li><a href="#">Special 4</a></li> 
                    <li><a href="#">Special 5</a></li> 
                  </ul>
-               </li>
+               </li>-->
              </ul>              
             </div>
          </nav>
@@ -304,7 +303,92 @@
    </div>
 </footer>
 
+<!--<div class="container">
+    <a href="detail.html">
+        <script language =javascript>
+            var curIndex=0;
+            var timeInterval=2000;
+            var arr1=new Array();
+            var arr2=new Array();
+            arr1[0]="img/view1.jpg";
+            arr1[1]="img/view3.jpg";
+            arr1[2]="img/view4.jpg";
 
+            arr2[0]="In animal research and clinical trials around the world\n" +
+                "medical scientists rely on Millar pressure catheters";
+            arr2[1]="One discovery can change the course of medicine.";
+            arr2[2]="Long may she reign";
+            setInterval(changeImg,timeInterval);
+            function changeImg()
+            {
+                var obj=document.getElementById("obj");
+                var introduce=document.getElementById("introduce")
+                if (curIndex==arr1.length-1)
+                {
+                    curIndex=0;
+                }
+                else
+                {
+                    curIndex+=1;
+                }
+                obj.src=arr1[curIndex];
+                introduce.textContent=arr2[curIndex];
+            }
+        </script>
+        <img id=obj src ="img/view1.jpg" width=200 height=150 border =0>
+        <p id=introduce>In animal research and clinical trials around the world,<br>
+            medical scientists rely on Millar pressure catheters<p/>
+    </a>
+</div>-->
+<body>
+<section class="bg-gray">
+    <div class="container">
+        <div class="highlights">
+            <article class="card">
+                <a href="http://www.apache.org/foundation/reports.html">
+                    <img class="img-responsive" alt="Apache Annual Report" src="images/art/thumbs/106020.jpg">
+                    <div class="card-content">
+                        <h4>Foundation Reports</h4>
+                        <p>Official ASF reports and statements, including Quarterly and Annual Reports, Vision Statement, "Apache
+                            is Open", 5-Year Strategic Plan, and&nbsp;more.</p>
+                    </div>
+                </a>
+            </article>
+            <article class="card">
+                <a href="http://community.apache.org/">
+                    <img class="img-responsive" alt="The Apache Community" src="images/art/thumbs/107010.jpg">
+                    <div class="card-content">
+                        <h4>Community</h4>
+                        <p>Guidance and mentoring for those interested in participating in Apache projects and their communities.
+                            From Google Summer of Code to community events, get started here to learn how to become an
+                            Apache&nbsp;contributor.</p>
+                    </div>
+                </a>
+            </article>
+            <article class="card">
+                <a href="http://www.apache.org/theapacheway/index.html">
+                    <img class="img-responsive" alt="The Apache Way" src="images/art/thumbs/116010.jpg">
+                    <div class="card-content">
+                        <h4>The Apache Way</h4>
+                        <p>Our consensus-driven, open development process was refined over the past 20 years and produced some of
+                            the largest and longest-lived Open Source projects that have revolutionized the&nbsp;industry.</p>
+                    </div>
+                </a>
+            </article>
+            <article class="card">
+                <a href="https://www.apachecon.com/">
+                    <img class="img-responsive" alt="ApacheCon" src="images/art/thumbs/120010.jpg">
+                    <div class="card-content">
+                        <h4>Apache Conferences</h4>
+                        <p>"Tomorrow's Technology Today" since 1998. Intentionally intimate, offering unparalleled educational,
+                            networking, and collaboration opportunities. 2019 events are taking place in Washington DC, Chicago, Las
+                            Vegas, and Berlin. Join&nbsp;us!</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

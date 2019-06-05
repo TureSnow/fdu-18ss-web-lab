@@ -39,32 +39,42 @@
           <div class="panel-body">
             <form action="Lab11.php" method="get" class="form-horizontal">
               <div class="form-inline">
-              <select name="continent" class="form-control">
-                <option value="0">Select Continent</option>
-                <?php
-                //Fill this place
+                  <select name="continent" class="form-control">
+                        <option value="0">Select Continent</option>
+                         <?php
+                         try{
+                             include ("connect.php");
 
-                //****** Hint ******
-                //display the list of continents
+                             $sqlofCon="select * from continents";
+                             $result=$pdo->query($sqlofCon);
+                             while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                 echo '<option value=' . $row['ContinentCode'] . '>' . $row['ContinentName'] . '</option>';
+                             }
+                             $pdo=null;
+                         }catch (PDOException $e){
+                             die($e->getMessage());
+                         }
+                         ?>
+                  </select>
+                  <select name="country" class="form-control">
+                      <option value="0">Select Country</option>
+                      <?php
+                      try{
+                          include ("connect.php");
 
-                while($row = $result->fetch_assoc()) {
-                  echo '<option value=' . $row['ContinentCode'] . '>' . $row['ContinentName'] . '</option>';
-                }
-
-                ?>
-              </select>     
-              
-              <select name="country" class="form-control">
-                <option value="0">Select Country</option>
-                <?php 
-                //Fill this place
-
-                //****** Hint ******
-                /* display list of countries */ 
-                ?>
-              </select>    
-              <input type="text"  placeholder="Search title" class="form-control" name=title>
-              <button type="submit" class="btn btn-primary">Filter</button>
+                          $sqlofCon="select * from countries";
+                          $result=$pdo->query($sqlofCon);
+                          while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                              echo '<option value=' . $row['ISO'] . '>' . $row['CountryName'] . '</option>';
+                          }
+                          $pdo=null;
+                      }catch (PDOException $e){
+                          die($e->getMessage());
+                      }
+                      ?>
+                  </select>
+                  <input type="text" id="filter" placeholder="Search title" class="form-control" name=title>
+                  <button type="submit" class="btn btn-primary">Filter</button>
               </div>
             </form>
 
@@ -89,7 +99,66 @@
                 </div>
               </a>
             </li>        
-            */ 
+            */
+            try{
+                include ("connect.php");
+                if(isset($_GET["country"])){
+                    if($_GET["country"]!=0){
+                        $ISO=$_GET["country"];
+                        $sql="select * from imagedetails where CountryCodeISO='$ISO'";
+                        $result=$pdo->query($sql);
+                        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            echo '<li>
+              <a href="detail.php?id=' . $row['ImageID'] . '" class="img-responsive">
+                <img src="images/square-medium/' . $row['Path'] . '" alt="'.$row['Title'].'">
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <p>'.$row['Description'].'</p>
+                  </div>
+                </div>
+              </a>
+            </li>';}
+
+
+                    }
+                    else{
+                        $ContinentCode = $_GET["continent"];
+                        $sql = "select * from imagedetails where ContinentCode='$ContinentCode'";
+                        $result = $pdo->query($sql);
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            echo '<li>
+              <a href="detail.php?id=' . $row['ImageID'] . '" class="img-responsive">
+                <img src="images/square-medium/' . $row['Path'] . '" alt="' . $row['Title'] . '">
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <p>' . $row['Description'] . '</p>
+                  </div>
+                </div>
+              </a>
+            </li>';}}
+                } else{
+                    $sql = "select * from imagedetails";
+                    $result = $pdo->query($sql);
+                    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                        echo '<li>
+              <a href="detail.php?id=' . $row['ImageID'] . '" class="img-responsive">
+                <img src="images/square-medium/' . $row['Path'] . '" alt="' . $row['Title'] . '">
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <p>' . $row['Description'] . '</p>
+                  </div>
+                </div>
+              </a>
+            </li>';
+                    }
+                }
+                $pdo=null;
+            }catch (PDOException $e){
+                die($e->getMessage());
+            }
             ?>
        </ul>       
 

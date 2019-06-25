@@ -1,0 +1,35 @@
+.card{
+    display:flex;
+    flex-direction: column;
+    margin-top:20px ;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: gainsboro solid 2px;
+    justify-content: center;
+    align-items: center;
+}
+.card-content{
+    padding: 10px 15px 10px 15px;
+}
+.card-title{
+    font-family: "Comic Sans MS";
+    font-size: x-large;
+    color: palevioletred;
+    margin: 1em;
+}
+.card-img{
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.card-name{
+    margin: auto;
+    font-size: medium;
+    margin: 1em;
+}
+.card-text{
+    margin: auto;
+    font-size: small;
+    margin: 1em;
+}

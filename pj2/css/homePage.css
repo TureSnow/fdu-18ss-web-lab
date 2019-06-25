@@ -1,0 +1,11 @@
+#home_top_img{
+    padding: 0%;
+    margin: 10px;
+    margin-top: 5%;
+}
+#home_top_introduce{
+    position: relative;
+    right: 540px;
+    top: 400px;
+    font-size:large ;
+}
